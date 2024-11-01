@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>HomePage</title>
+</head>
+<body>
+  <h2>Bien-Venido, manito!</h2>
+  <button id="botao_logout">Sair</button>
+
+  <script>
+    document.getElementById('botao_logout').addEventListener('click', async () => {
+      const response = await fetch('/logout', { method: 'POST' });
+      const result = await response.text();
+
+      if (response.ok) {
+        window.location.href = '/login';
+      }
+    });
+  </script>
+</body>
+</html>
